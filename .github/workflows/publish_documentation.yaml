@@ -22,10 +22,10 @@ jobs:
         with:
           node-version: 21
           cache: yarn
-          cache-dependency-path: ./documentation/yarn.lock
+          cache-dependency-path: ./yarn.lock
 
       - name: Install dependencies and build website
-        working-directory: ./documentation
+        working-directory: .
         run: |
           yarn install --frozen-lockfile
           yarn build
