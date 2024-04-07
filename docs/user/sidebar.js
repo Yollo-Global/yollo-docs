@@ -1,1 +1,1 @@
-module.exports = [{"type":"doc","id":"user/user-service"},{"type":"category","label":"Auth","items":[{"type":"doc","id":"user/auth-by-phone","label":"Auth by phone","className":"api-method post"}]}];
+module.exports = [{"type":"doc","id":"user/user-service"},{"type":"category","label":"Auth","items":[{"type":"doc","id":"user/auth-by-phone","label":"Auth by phone","className":"api-method post"},{"type":"doc","id":"user/refresh-auth-token","label":"Refresh auth token","className":"api-method post"}]}];

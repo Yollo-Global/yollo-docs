@@ -1,11 +1,11 @@
 ---
-id: auth-by-phone
-title: "Auth by phone"
-description: "Using the phone number user registers or logins to system"
-sidebar_label: "Auth by phone"
+id: refresh-auth-token
+title: "Refresh auth token"
+description: "Refreshes the authentication token using the refresh token"
+sidebar_label: "Refresh auth token"
 hide_title: true
 hide_table_of_contents: true
-api: eJztV99v2zgM/lcEvezh0iXdbbs2b72hGwYckKE/nrqgY2wl1mpLmiS3zQX+34+kncZ2siVYcW9tgTR1KH7kx48Us5IRFkGOb+RZGTM5HUivgrMmKHy4km9GI/qTqpB47aK2Ro7ZUpmoE6AHYn1ADmRiTcRP6Ag4lzcWw++Bzq1kSDJVAL2LS6fQk519V0nEg5DnkzlG0Yf6pIzykD9hiLn14iGzuRJnXz6LoPy9Tgi579B565SPuk7D3rVAZxaPg5GUKqQTky/lOPpSDXrYn+fiGz3/tkHXQYQySVQIeFo9QuFyVR+uKPlUtWA0UrFQfi/MZYRYBmHnAmMm1ypFwB+lCrENgpVAjAI/h0UbJkSvzeI5KEIbEdVjJG4L6IDKyyZbhHawzC2ku6r3a+gLFUtvGG9dRG8LgRri+iFFFbqPOjLiRWN0WWulGqx6tWzFcags94gjul1JdZ1PotvEDyYVOr4KQj06TfSLqAu15Tg0rbClu57OsCzonawFqtvYSHSzaxVuIe4qdtfDeTsMqjH5w6peX31YF7UijoFafG+qPR5TiLCVGrAsbqO9U2Z/fOTRev1v7ZAP4aso4E6tRcgS82qOKWeHur2ozTcOS4fBYnnawXHiJQptf+LXaIVFpYS5J0igyxBVsZV+Wep0f3yNv9rH0YNOlSiNRsEHnGj4DhMX6Afjm2sf4q2BYmdnd71+JFtBtlRpCpKzQy85HOzkH/iJD+w5nR+cGlsLSFO/HhKZNQfAN8fZWpiymPEQaI8Bkkx/FFTVtDZ6u+tWOvceu+d3LqOXK+flyunqDD9896KxF439rxrjC49D/dumSwrgN9XUvV43JG/n86PEnSKlbb8e1NO+op4xv9v8/nF6enI6On7z59t37/8ilrs71k+8Tow64g3GQQgP1qfYEjrJWJ60HOENT+zWMbbhCEhu3x7MQ6ep+1nwzrR22STCVyGyuNB4bftAK1luF9oEwn/aBwqFnCOT0lnm2gGtVnLIK9ZA1goI/I2m9HihyixGNx4Oc5tAnuGZ8cnoZDQkrOH98fb9vDaTFdaIBHCxkcr5OvGnevUIb/hueBlgz84t09/QQ+VrDZku9FXGfPOH1FX3uLcEAd2lkDZg5omWpa80dCjd2sHx69HrEbcWxl8AS7feSrguYrZ8KmEHuaX/Z5WmERn1/tDloA3FwkVYNWW6qTdhZJYpxv9XqxkEde3zqqLHSLXHjrzBt/fgNcyItpsp+slwJtAuiXW9U2giP9QxH10RKpnnJaFv9S99kalPnOHscfGXttOWwL5MLq/QeNbMiILHsfTwQB2Nr2P5FX+p5swjtzE/X+FCaBYlz1VZ+6Wf/wAtVJRU
+api: eJztV0tvEzEQ/iuWL1xaEhBIKLcKAUJCKupDQipVmexOuqZe29jetCHa/86MvWl3k7QJQtx6amrPfPP6dsazlBGug5xcyKMmVvLyQDrwUGNEz6dLqYycyAqhRC8PpKEr+v/b4QnOPIbq8MzeoKGLUFRYg5wsZVw4FgnRK3Mt2wNZYii8clFZhuoURWRFMbNeeDR4K6AoMIR8LFvyg6ScNQEDg74ej/nPEIo9RhNVAXwgVgrkTWFNpBtWAed0JzH6GVhvuemsnf7EIpIiaH08S3EPTX0iHz3oexvJ8dvKahRHXz+LgH6uCra8Dui8deijymHYm57RqSV14OR5Su+x0Qs5ib7B9Yx9nokffP7jwboKIjQpYaSNd1A7jVm55eBL7JlRlIrrVLynzZxGiE0QdibIZ4bGkgz+ajDEvhGqBNmo6R6ucbPe/2BFKCMi3kXObQ0Do/K0i7Zlfi60hXJb9Z42fYKx8SbZWxXR21oQh1L9KEUtwUcVk8WTTug0c6U9WK7VsufHvrTcQY7otgU1BD+O7sF/MKVQ8UUQeOcUp19EVeMGcOg+hQ3erfGMykLoLC2I3cZGTneCxnAFcVuxhwgf+m5wjRmPqnp+9n5V1JZzDNxqdoa6lscSImyElrvGVe4aO/1jROvV7wyYO1C0ooYbXJEwUcznHrUv7LClEWDjyFkUA+dS4A0RbXfg5yRFReWA0zfBBF2EiPVG+E2jyt3+dXgZ4/BWlSgao4jwgToa/aLABeGQfzPlQ7zKTX4X6keWFSzLlWYnU3SEomFvkC/wCAZ9c0rvHVqSFlCWftUkKmv2MN+pJ2lhmnqamkC/DTBl1ltB215moTfbptIH79NQ+/th9DxynkfOkGd0+faZY88c+68ce+yJjiGBwHAM5yHXhDTmK56bveEnOYU0YykM6WzKsAOe9XLEMKNOmPeF5FpeMRqveceI0U1GI20L0BXpTt6N341HPA9G81ebg2MllnYFZWY2Za6Lkvt6j71D1bOKeZYvuVxzGohhPUx+WrHtNIW/c2DsbgZ49XL8cpxqRvZrSF9YtxitngKMdp+Sgfnlw7f6b4nuWMLUGjkNtKfxA8Pr/DblpF/kh9b9e4a3u5QyulkupxDw3Ou25WNiqid+XdDPOXgFU07jxSUhdqtfWolU4Asq7gx0WCfilsCeXvIeCeEGF1s3zDnohqXTUzwLHRGci727jd7H5Lhn5Nfj0zNi/B+ZkEI1
 sidebar_class_name: "post api-method"
 info_path: docs/user/user-service
 custom_edit_url: null
@@ -22,17 +22,17 @@ import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
 import TabItem from "@theme/TabItem";
 
-<h1 className={"openapi__heading"}>Auth by phone</h1>
+<h1 className={"openapi__heading"}>Refresh auth token</h1>
 
-<MethodEndpoint method={"post"} path={"/auth"}></MethodEndpoint>
+<MethodEndpoint method={"post"} path={"/auth/refresh"}></MethodEndpoint>
 
 
 
-Using the phone number user registers or logins to system
+Refreshes the authentication token using the refresh token
 
 ## Request
 
-<MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"phone"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"User's phone number","example":"+998901234567"}}></SchemaItem><SchemaItem collapsible={false} name={"otp"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"One-time password which is sent to the phone","example":"1234"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","name":"X-Refresh-Token","schema":{"type":"string"},"description":"Refresh token for renew access token"}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
 
 Authentication response
 

@@ -1,7 +1,8 @@
 openapi: 3.0.3
 info:
   title: User service
-  description: This service provides authentication and user data
+  description: |
+    This service provides authentication and user data
   version: 1.0.0
 servers:
   - url: 'http://localhost:8080/user/v1'
@@ -22,6 +23,25 @@ paths:
         $ref: "#/components/requestBodies/Auth"
       summary: Auth by phone
       description: Using the phone number user registers or logins to system
+  /auth/refresh:
+    post:
+      tags:
+        - Auth
+      parameters:
+        - in: header
+          name: X-Refresh-Token
+          schema:
+            type: string
+          description: Refresh token for renew access token
+      responses:
+        200:
+          $ref: "#/components/responses/Auth"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: Refresh auth token
+      description: Refreshes the authentication token using the refresh token
 components:
   requestBodies:
     Auth:
