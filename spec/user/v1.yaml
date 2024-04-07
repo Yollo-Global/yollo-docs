@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: User service
+  description: This service provides authentication and user data
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080/user/v1'
+    description: Localhost
+paths:
+  /auth:
+    post:
+      tags:
+        - Auth
+      responses:
+        200:
+          $ref: "#/components/responses/Auth"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      requestBody:
+        $ref: "#/components/requestBodies/Auth"
+      summary: Auth by phone
+      description: Using the phone number user registers or logins to system
+components:
+  requestBodies:
+    Auth:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AuthRequestSchema"
+  responses:
+    Error:
+      description: Error response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseSchema"
+    Auth:
+      description: Authentication response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/AuthResponseSchema"
+  schemas:
+    AuthRequestSchema:
+      description: Authorization request
+      type: object
+      required:
+        - phone
+      properties:
+        phone:
+          type: string
+          description: User's phone number
+          example: "+998901234567"
+        otp:
+          type: string
+          description: One-time password which is sent to the phone
+          example: "1234"
+    AuthResponseSchema:
+      description: Authentication response
+      type: object
+      properties:
+        otp:
+          type: object
+          description: Otp response and it's expiring time
+          properties:
+            sent:
+              type: boolean
+              description: Is otp sent or not
+            expires_at:
+              type: string
+              description: Expiring time of otp in UTC format
+        auth:
+          type: object
+          description: Authentication data
+          properties:
+            access_token:
+              type: string
+              description: Authorization token to make requests
+            refresh_token:
+              type: string
+              description: Refresh token to update access_token
+        user:
+          type: object
+          description: User's data in the system
+          properties:
+            uuid:
+              type: string
+              description: User's system-wide universal unique id
+            first_name:
+              type: string
+              description: First name of the user
+            last_name:
+              type: string
+              description: Last name of the user
+            email:
+              type: string
+              description: User's email address
+            phone:
+              type: string
+              description: User's phone number
+    ResponseSchema:
+      description: General response for whole API service
+      type: object
+      properties:
+        ok:
+          type: boolean
+          readOnly: true
+          description: If `true` response is success
+          example: true
+        code:
+          type: integer
+          readOnly: true
+          description: Status of processed request
+          example: 200
+        message:
+          type: string
+          readOnly: true
+          description: Status of processed request in text format
+          example: "Success"
+        payload:
+          type: object
+          readOnly: true
+          description: Returned response from the server
