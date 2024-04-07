@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocumentation=self.webpackChunkdocumentation||[]).push([[19],{71109:e=>{e.exports=JSON.parse('{"title":"User service","description":"User service api","slug":"/user/v1","permalink":"/yollo-docs/docs/user/v1","navigation":{"next":{"title":"Introduction","permalink":"/yollo-docs/docs/user/user-service"}}}')}}]);
