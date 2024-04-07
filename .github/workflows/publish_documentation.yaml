@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - feat/user-doc
   workflow_dispatch:
 
 permissions:
