@@ -53,6 +53,11 @@ const config = {
             to: "/docs/user/v1",
           },
           {
+            label: "Catalog service",
+            position: "left",
+            to: "/docs/catalog/v1",
+          },
+          {
             href: "https://github.com/yollo-global/yollo-backend",
             label: "GitHub",
             position: "right",
@@ -76,6 +81,14 @@ const config = {
           user: {
             specPath: "spec/user/v1.yaml",
             outputDir: "docs/user/",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+          },
+          catalog: {
+            specPath: "spec/catalog/v1.yaml",
+            outputDir: "docs/catalog/",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",

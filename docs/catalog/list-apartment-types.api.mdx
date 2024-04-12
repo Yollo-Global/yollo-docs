@@ -1,0 +1,52 @@
+---
+id: list-apartment-types
+title: "List apartment types"
+description: "Get all apartment types"
+sidebar_label: "List apartment types"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV01v2zAM/SuCLrt0TTpsQJFb0RVFgQId+nHqAlRxaFutLHmSnDUz/N9Hykn8ESfBCuyWHBJYFPmoxyeaKbkXieOTZ36RC+sz0J75ZQ58esJxQWTgwZK95FLzCU9BzMHyE67RhM+3QieFSABXXJRCJvik5CHAhDtvpU7QMgcXWZl7aSjEkwPLHCiIPMyZagKALjLKpPgTHvDLFnxaVScr7F8F2GUDbeLYgR8CltpDErLsIt8FDxYby3KRSC3C+k4AJTP5T/FvyWE7PFJpweVGO3AU5ct4TD9d3wulmOiUwLG1FwJFBjG1Jz+R50pGIfjo1ZFzuZ2imb0iv+golLqLQ/26eNegwQq1wQhp/06NAnbx4wbrYxcyIuR+wNyaHKyX9VnMWwt0ZtBdhMKhTO60WvKJtwX0ebqJ2QutvzTo0jFXRBE4R7V/F1muoHau6PBzGKR/P8yDF75wzMQMc6bQKDcLWGTn2yBYDsTI0E4yHJDvh1GY1MzDe5BEJjqg/GF12oru2VIZMR+q3n7oe/CF1QFvXURrMuZTCPVDilDb3EsfEO9Xmx5qrZDqu7Vs5XFYm0oGFverIzJFrdkDF+eS9hGFYhuJGJIeMteKI6wVdFE36718exH6acn54S51853yISq7+fCG0UMhHmnb7igyqu/ugW55fzsc4pNjIUJFn6bKm7M/4h4sXL/q2I5qh69DXejKWmwDH+k7x+5y7C5dnaHx21FjR439V41V/YjXOOANvUWIH58azJEnYWrMhU/xYbTZ+DmkjuNeAK5n3sIqGnq9zyejkTKRUKlxfnI+Ph+PUKZCmWS0ONseBNc7OQ1/UscmULM6xmXt2FJo772RkpZqI5VkIdHeHMixOQb4SSKlPGufs9Px6TiUAlEzES7OekTHN/UAHR3MsrmEexhc1ZYEMcqVwJkZAQNF5YrOZ96jE48feEBLWc6EgyerqoqW62E7DKbSiZkCLE0slEONvMGyPd8vhCoIN4wsOzavZ/Vm75QerKTNiDLFTFf/XQYhd7Kx69g1bOvvTyfL2nqBFyRvZ7XV3ijLjS6vrx5R038BB+u8vQ==
+sidebar_class_name: "get api-method"
+info_path: docs/catalog/catalog-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>List apartment types</h1>
+
+<MethodEndpoint method={"get"} path={"/apartment-type"}></MethodEndpoint>
+
+
+
+Get all apartment types
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"query","name":"offset","schema":{"type":"integer","description":"Offset for pagination"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"query","name":"limit","schema":{"type":"integer","description":"Limit for pagination"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","name":"Language","schema":{"type":"string","description":"User selected language","enum":["uz","en","ru"]}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+All apartment types response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"ok"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","readOnly":true,"description":"If `true` response is success","example":true}}></SchemaItem><SchemaItem collapsible={false} name={"code"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","readOnly":true,"description":"Status of processed request","example":200}}></SchemaItem><SchemaItem collapsible={false} name={"message"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","readOnly":true,"description":"Status of processed request in text format","example":"Success"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>payload</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Returned response from the server
+
+</div><SchemaItem collapsible={false} name={"count"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","description":"Count of all apartment types"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>items</strong><span className={"openapi-schema__name"}> undefined[]</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"ID of the apartment type"}}></SchemaItem><SchemaItem collapsible={false} name={"title"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Title of the apartment type"}}></SchemaItem><SchemaItem collapsible={false} name={"icon"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"URL of the apartment type's icon"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"ok\": true,\n  \"code\": 200,\n  \"message\": \"Success\",\n  \"payload\": {\n    \"count\": 0,\n    \"items\": [\n      {\n        \"id\": \"string\",\n        \"title\": \"string\",\n        \"icon\": \"string\"\n      }\n    ]\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Error response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"ok"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","readOnly":true,"description":"If `true` response is success","example":true}}></SchemaItem><SchemaItem collapsible={false} name={"code"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","readOnly":true,"description":"Status of processed request","example":200}}></SchemaItem><SchemaItem collapsible={false} name={"message"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","readOnly":true,"description":"Status of processed request in text format","example":"Success"}}></SchemaItem><SchemaItem collapsible={false} name={"payload"} required={false} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","readOnly":true,"description":"Returned response from the server"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"ok\": true,\n  \"code\": 200,\n  \"message\": \"Success\",\n  \"payload\": {}\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Error response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"ok"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","readOnly":true,"description":"If `true` response is success","example":true}}></SchemaItem><SchemaItem collapsible={false} name={"code"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","readOnly":true,"description":"Status of processed request","example":200}}></SchemaItem><SchemaItem collapsible={false} name={"message"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","readOnly":true,"description":"Status of processed request in text format","example":"Success"}}></SchemaItem><SchemaItem collapsible={false} name={"payload"} required={false} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","readOnly":true,"description":"Returned response from the server"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"ok\": true,\n  \"code\": 200,\n  \"message\": \"Success\",\n  \"payload\": {}\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

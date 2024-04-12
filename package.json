@@ -3,15 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prestart": "docusaurus clean-api-docs user && docusaurus gen-api-docs user",
-    "prerestart": "docusaurus clean-api-docs user && docusaurus gen-api-docs user",
+    "prestart": "./scripts/build.sh",
+    "prerestart": "./scripts/build.sh",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
-    "gen-api-docs": "docusaurus gen-api-docs user",
-    "clean-api-docs": "docusaurus clean-api-docs user"
+    "gen-api-docs": "docusaurus gen-api-docs user catalog",
+    "clean-api-docs": "docusaurus clean-api-docs user catalog"
   },
   "dependencies": {
     "@docusaurus/core": ">=2.4.1 <=2.4.3",

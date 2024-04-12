@@ -27,6 +27,19 @@ const sidebars = {
       },
       // @ts-ignore
       items: require("./docs/user/sidebar.js"),
+    },
+    {
+      type: "category",
+      label: "Catalog service",
+      link: {
+        type: "generated-index",
+        title: "Catalog service",
+        description:
+            "Catalog service api",
+        slug: "/catalog/v1"
+      },
+      // @ts-ignore
+      items: require("./docs/catalog/sidebar.js"),
     }
   ]
 

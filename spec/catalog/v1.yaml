@@ -1,0 +1,654 @@
+openapi: 3.0.3
+info:
+  title: Catalog service
+  description: |
+    This service provides apartments data
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080/catalog/v1'
+    description: Localhost
+paths:
+  /feature-category:
+    get:
+      tags:
+        - Feature category
+      parameters:
+        - in: header
+          name: Language
+          schema:
+            type: string
+            description: User selected language
+            enum:
+              - uz
+              - en
+              - ru
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            description: Offset for pagination
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            description: Limit for pagination
+      responses:
+        200:
+          $ref: "#/components/responses/FeatureCategoryAll"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: List feature categories
+      description: Get all feature categories with its features
+  /country:
+    get:
+      tags:
+        - Country
+      parameters:
+        - in: header
+          name: Language
+          schema:
+            type: string
+            description: User selected language
+            enum:
+              - uz
+              - en
+              - ru
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            description: Offset for pagination
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            description: Limit for pagination
+      responses:
+        200:
+          $ref: "#/components/responses/CountryAll"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: List countries
+      description: Get all countries
+  /apartment-type:
+    get:
+      tags:
+        - Apartment type
+      parameters:
+        - in: header
+          name: Language
+          schema:
+            type: string
+            description: User selected language
+            enum:
+              - uz
+              - en
+              - ru
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            description: Offset for pagination
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            description: Limit for pagination
+      responses:
+        200:
+          $ref: "#/components/responses/ApartmentTypeAll"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: List apartment types
+      description: Get all apartment types
+  /file:
+    post:
+      tags:
+        - File
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: A file which needs to be uploaded to the server
+      responses:
+        200:
+          $ref: "#/components/responses/UploadFile"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: Upload file
+      description: Upload any file to the server
+  /apartment:
+    get:
+      tags:
+        - Apartment
+      parameters:
+        - in: header
+          name: Language
+          schema:
+            type: string
+            description: User selected language
+            enum:
+              - uz
+              - en
+              - ru
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            description: Offset for pagination
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            description: Limit for pagination
+      responses:
+        200:
+          $ref: "#/components/responses/ApartmentAll"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: List apartments
+      description: Get all apartments
+  /apartment/{id}:
+    get:
+      tags:
+        - Apartment
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            description: ID of the apartment
+      responses:
+        200:
+          $ref: "#/components/responses/Apartment"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: Get apartment
+      description: Get apartment by id
+  /apartment/draft:
+    post:
+      tags:
+        - Draft-Apartment
+      requestBody:
+        $ref: "#/components/requestBodies/CreateUpdateDraftApartment"
+      responses:
+        200:
+          $ref: "#/components/responses/CreatedResponse"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: Create draft apartment
+      description: Create apartment as draft
+  /apartment/draft/{id}:
+    put:
+      tags:
+        - Draft-Apartment
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/CreateUpdateDraftApartment"
+      responses:
+        200:
+          $ref: "#/components/responses/Empty"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: Update draft apartment
+      description: Update apartment as draft
+
+components:
+  requestBodies:
+    CreateUpdateDraftApartment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              apartment_type_id:
+                type: string
+                description: Selected apartment type id
+              basic_info:
+                type: object
+                description: Basic info about apartment
+                properties:
+                  guests:
+                    type: integer
+                  bedrooms:
+                    type: integer
+                  beds:
+                    type: integer
+                  bathrooms:
+                    type: integer
+              feature_ids:
+                type: array
+                description: Selected feature ids
+              location_info:
+                type: object
+                properties:
+                  country_id:
+                    type: string
+                  city:
+                    type: string
+                  address:
+                    type: string
+                  description:
+                    type: string
+                  latitude:
+                    type: string
+                  longitude:
+                    type: string
+              photos:
+                type: array
+                items:
+                  properties:
+                    caption:
+                      type: string
+                    urls:
+                      type: array
+              caption:
+                type: object
+                properties:
+                  language:
+                    type: string
+                    enum:
+                      - ru
+                      - en
+                      - uz
+                  title:
+                    type: string
+                  description:
+                    type: string
+              pricing:
+                type: object
+                properties:
+                  base_price:
+                    type: integer
+                  prices:
+                    type: array
+                    items:
+                      properties:
+                        price:
+                          type: integer
+                          description: Price in tiyins
+                        type:
+                          type: string
+                          enum:
+                            - day
+                            - month
+                          description: Type for given price
+                        weekends:
+                          type: array
+                          description: If type is day, then "weekends" receives 1,2,3... and if type is month, it receives january, february, and so on. But in integer format
+  responses:
+    Error:
+      description: Error response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseSchema"
+    FeatureCategoryAll:
+      description: All feature categories response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/FeatureCategoryAllResponseSchema"
+    CountryAll:
+      description: All countries response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/CountryAllResponseSchema"
+    ApartmentTypeAll:
+      description: All apartment types response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/ApartmentTypeAllResponseSchema"
+    UploadFile:
+      description: Uploaded file response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    properties:
+                      url:
+                        type: string
+                        description: Uploaded file url
+    ApartmentAll:
+      description: All apartment types response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/ApartmentAllResponseSchema"
+    Apartment:
+      description: Apartment response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/ApartmentSchema"
+    CreatedResponse:
+      description: Created or updated response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/IDResponse"
+    Empty:
+      description: Created or updated response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/EmptyResponse"
+  schemas:
+    IDResponse:
+      description: ID of the created or updated data
+      type: object
+      properties:
+        id:
+          type: string
+    EmptyResponse:
+      type: object
+      description: Empty value
+    ApartmentAllResponseSchema:
+      description: All apartment types list
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Count of all apartment types
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApartmentSchema"
+    ApartmentSchema:
+      description: Single apartment
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the apartment
+        location_info:
+          type: object
+          description: Location info of the apartment
+          properties:
+            country:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ID of the country
+                title:
+                  type: string
+                  description: Title of the country
+            city:
+              type: string
+              description: city of the apartment
+            address:
+              type: string
+              description: address of the apartment
+            description:
+              type: string
+              description: description of the apartment
+            latitude:
+              type: string
+              description: latitude of the apartment
+            longitude:
+              type: string
+              description: longitude of the apartment
+        status:
+          type: integer
+        basic_info:
+          type: object
+          properties:
+            guests:
+              type: integer
+              description: Count of guests in the apartment
+            bedrooms:
+              type: integer
+              description: Count of bedrooms in the apartment
+            beds:
+              type: integer
+              description: Count of beds in the apartment
+            bathrooms:
+              type: integer
+              description: Count of bathrooms in the apartment
+        apartment_type:
+          type: object
+          properties:
+            id:
+              type: string
+              description: id of the apartment type
+            icon:
+              type: string
+              description: icon of the apartment type
+            title:
+              type: string
+              description: title of the apartment type
+        features:
+          type: array
+          items:
+            description: Features of the apartment
+            type: object
+            properties:
+              id:
+                type: string
+                description: id of the feature
+              title:
+                type: string
+                description: title of the feature
+              icon:
+                type: string
+                description: icon of the feature
+              feature_category:
+                type: object
+                description: feature category of the feature
+                properties:
+                  id:
+                    type: string
+                    description: id of the feature category
+                  title:
+                    type: string
+                    description: title of the feature category
+        pricing:
+          type: object
+          description: Pricing info for the apartment
+          properties:
+            base_price:
+              type: integer
+              description: Base price for the apartment in tiyins
+            prices:
+              type: array
+              description: Prices for different days and weekends
+              properties:
+                price:
+                  type: integer
+                  description: Price in tiyins
+                type:
+                  type: string
+                  enum:
+                    - day
+                    - month
+                  description: Type for given price
+                weekends:
+                  type: array
+                  description: If type is day, then "weekends" receives 1,2,3... and if type is month, it receives january, february, and so on. But in integer format
+        photos:
+          type: array
+          properties:
+            caption:
+              type: string
+              description: Caption for the group of the uploaded photos. Bedroom, dining room, and etc.
+            urls:
+              type: array
+              description: URLs of the uploaded photos for the group
+        caption:
+          type: object
+          properties:
+            title:
+              type: object
+              description: Title of the apartment in different languages
+            description:
+              type: object
+              description: Description of the apartment in different languages
+    ApartmentTypeAllResponseSchema:
+      description: All apartment types list
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Count of all apartment types
+        items:
+          type: array
+          items:
+            description: Apartment types
+            properties:
+              id:
+                type: string
+                description: ID of the apartment type
+              title:
+                type: string
+                description: Title of the apartment type
+              icon:
+                type: string
+                description: URL of the apartment type's icon
+    CountryAllResponseSchema:
+      description: All countries list
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Count of all countries in database
+        items:
+          type: array
+          items:
+            description: Countries list
+            properties:
+              id:
+                type: string
+                description: ID of the country
+              title:
+                type: string
+                description: Title of the country
+    FeatureCategoryAllResponseSchema:
+      description: All feature categories list
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Count of all feature categories in database
+        items:
+          type: array
+          description: Array of feature categories
+          items:
+            description: Feature category
+            properties:
+              id:
+                type: string
+                description: ID of the feature category
+              title:
+                type: string
+                description: Title of the feature category
+              description:
+                type: string
+                description: Description of the feature category
+              features:
+                type: array
+                description: Features of the feature category
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: ID of the feature
+                    title:
+                      type: string
+                      description: Title of the feature
+                    description:
+                      type: string
+                      description: Description of the feature
+                    icon:
+                      type: string
+                      description: URL to the feature icon
+    ResponseSchema:
+      description: General response for whole API service
+      type: object
+      properties:
+        ok:
+          type: boolean
+          readOnly: true
+          description: If `true` response is success
+          example: true
+        code:
+          type: integer
+          readOnly: true
+          description: Status of processed request
+          example: 200
+        message:
+          type: string
+          readOnly: true
+          description: Status of processed request in text format
+          example: "Success"
+        payload:
+          type: object
+          readOnly: true
+          description: Returned response from the server
