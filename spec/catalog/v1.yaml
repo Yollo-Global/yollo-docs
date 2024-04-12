@@ -173,6 +173,15 @@ paths:
           schema:
             type: string
             description: ID of the apartment
+        - in: header
+          name: Language
+          schema:
+            type: string
+            enum:
+              - uz
+              - ru
+              - en
+            description: Language
       responses:
         200:
           $ref: "#/components/responses/Apartment"
@@ -545,11 +554,11 @@ components:
           type: object
           properties:
             title:
-              type: object
-              description: Title of the apartment in different languages
+              type: string
+              description: Title of the apartment
             description:
               type: object
-              description: Description of the apartment in different languages
+              description: Description of the apartment
     ApartmentTypeAllResponseSchema:
       description: All apartment types list
       type: object
