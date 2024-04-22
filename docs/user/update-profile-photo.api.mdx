@@ -1,0 +1,52 @@
+---
+id: update-profile-photo
+title: "Update profile photo"
+description: "Updates authenticated user's profile photo"
+sidebar_label: "Update profile photo"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v2kAQ/SurvfRCYlK1UsQtrdoqUqWgkJxopAz2gDfY3u3umoai/e+dWZtgA0rVVr1xQIB3Pt68ebOejfSwcHI0lWOr56pA+TCQBiyU6NHywUaqSo5kjpChlQNZ0RH9v6p9rq36CV7pih67NMcS5Ggj/dqwgfNWVQsZBjJDl1plouGeo/B6iZWYaysgTdE5chE+R2FaNIHgWHRGVw4dR387HPJXP2aLXZhcey1qk4HHTGz9CF2qK4+VZ08wplBpzJ48OXbfHILXsydMPTlCUdzMIwv9jF+wQgvFS45Ywo9cE4ir8bVwaFcq5cz7Aakwg9arphq97CSdaXIHJtMS2TdVsZYjb2vcZ/B6Lh75+eMuu3LC1ZFA8sZnKA1xF50DF59hJ40iKhaxla+nmXjwtRN6zs3g0JHS7zU6301CDaEcJZ3DAg/7/w9ZhCJ94LNnbkvoJZWTttrAal0XGrJj3Xs99S362lYdoYi51WWUH/ePKAoU3isfM962RpNGK2Gw2etlB8d+no5GtuI0Xcn+Vie1LY5R289DRswj468NQ+E0MXy3jvsIoJ2YMR/vVxbCA33I5d2xWftkLZXxN7N1mqDTBPV1RofvTxo7aey/aixwhgj1g87WDKCjprIuvKJ9xycM/4yuRugLau+Oj9fprgawFtYHF/FnvthpEZntLmKyUR5LDhJCi6rv1NzLTgDtRwSOJU5F11TjG3fwtqDtLNdEpjQ69tmAz+lf0tolW7uGoWaNi+8QmXtvRklS6BSKnJxHl8PLYcJpktXFQSVft2ZxEVPVvCl++yohr84Q9V3vcpZ7c8j4VyrrV8frH1RNiYKJ/8ZDxXCbABfnw/NhlA7lLyEOert8NlwdsNID0Gnzn3HbtpY1nZgCaPslDO0LuOF5Krfr6aBVBJETWaKjzWYGDu9tEQI/JuFZEt2Ufq7AKpgxc9MHCtlu1NyaJZKJ/NjgPbtjAGxe1AzkmER5+2icrmjCjO+YH9yP3LkXvYxvJndkPGsnoYyXjuTAMe5g95NBhvALgDxFdQ==
+sidebar_class_name: "post api-method"
+info_path: docs/user/user-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Update profile photo</h1>
+
+<MethodEndpoint method={"post"} path={"/profile/photo"}></MethodEndpoint>
+
+
+
+Updates authenticated user's profile photo
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","name":"Authorization","schema":{"type":"string"},"description":"Authorization token for accessing the profile"}}></ParamsItem></ul></div></details><MimeTabs className={"openapi-tabs__mime"}><TabItem label={"multipart/form-data"} value={"multipart/form-data-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"photo"} required={false} schemaName={"undefined[]"} qualifierMessage={undefined} schema={{"type":"array","description":"File to be uploaded","items":{}}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Profile photo updated response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"ok"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","readOnly":true,"description":"If `true` response is success","example":true}}></SchemaItem><SchemaItem collapsible={false} name={"code"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","readOnly":true,"description":"Status of processed request","example":200}}></SchemaItem><SchemaItem collapsible={false} name={"message"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","readOnly":true,"description":"Status of processed request in text format","example":"Success"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>payload</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Returned response from the server
+
+</div><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"url of the uploaded photo"}}></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"ok\": true,\n  \"code\": 200,\n  \"message\": \"Success\",\n  \"payload\": {\n    \"url\": \"string\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Error response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"ok"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","readOnly":true,"description":"If `true` response is success","example":true}}></SchemaItem><SchemaItem collapsible={false} name={"code"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","readOnly":true,"description":"Status of processed request","example":200}}></SchemaItem><SchemaItem collapsible={false} name={"message"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","readOnly":true,"description":"Status of processed request in text format","example":"Success"}}></SchemaItem><SchemaItem collapsible={false} name={"payload"} required={false} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","readOnly":true,"description":"Returned response from the server"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"ok\": true,\n  \"code\": 200,\n  \"message\": \"Success\",\n  \"payload\": {}\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Error response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"ok"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","readOnly":true,"description":"If `true` response is success","example":true}}></SchemaItem><SchemaItem collapsible={false} name={"code"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","readOnly":true,"description":"Status of processed request","example":200}}></SchemaItem><SchemaItem collapsible={false} name={"message"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","readOnly":true,"description":"Status of processed request in text format","example":"Success"}}></SchemaItem><SchemaItem collapsible={false} name={"payload"} required={false} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","readOnly":true,"description":"Returned response from the server"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"ok\": true,\n  \"code\": 200,\n  \"message\": \"Success\",\n  \"payload\": {}\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

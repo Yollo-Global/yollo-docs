@@ -42,6 +42,89 @@ paths:
           $ref: "#/components/responses/Error"
       summary: Refresh auth token
       description: Refreshes the authentication token using the refresh token
+  /profile:
+    get:
+      tags:
+        - Profile
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          description: Authorization token for accessing the profile
+      responses:
+        200:
+          $ref: "#/components/responses/Profile"
+        400:
+          $ref: "#/components/responses/Error"
+        401:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      summary: Profile
+      description: Profile data
+    post:
+      tags:
+        - Profile
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          description: Authorization token for accessing the profile
+      responses:
+        200:
+          $ref: "#/components/responses/Ok"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      requestBody:
+        $ref: "#/components/requestBodies/UpdateProfile"
+      summary: Update profile data
+      description: Updates authenticated user's profile data
+  /profile/photo:
+    post:
+      tags:
+        - Profile
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          description: Authorization token for accessing the profile
+      responses:
+        200:
+          $ref: "#/components/responses/ProfilePhotoUpdated"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      requestBody:
+        $ref: "#/components/requestBodies/UpdateProfilePhoto"
+      summary: Update profile photo
+      description: Updates authenticated user's profile photo
+  /profile/passport:
+    post:
+      tags:
+        - Profile
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          description: Authorization token for accessing the profile
+      responses:
+        200:
+          $ref: "#/components/responses/Ok"
+        400:
+          $ref: "#/components/responses/Error"
+        500:
+          $ref: "#/components/responses/Error"
+      requestBody:
+        $ref: "#/components/requestBodies/UpdatePassport"
+      summary: Update passport
+      description: Updates authenticated user's passport data
 components:
   requestBodies:
     Auth:
@@ -49,7 +132,42 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/AuthRequestSchema"
+    UpdateProfile:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UpdateProfileRequestSchema"
+    UpdateProfilePhoto:
+      content:
+        multipart/form-data:
+          schema:
+            properties:
+              photo:
+                type: array
+                description: File to be uploaded
+                items: {}
+    UpdatePassport:
+      content:
+        multipart/form-data:
+          schema:
+            properties:
+              country_id:
+                type: string
+                description: Selected country id
+              region_id:
+                type: string
+                description: Selected region id for selected country id
+              passport_photo:
+                type: array
+                description: File to be uploaded
+                items: { }
   responses:
+    Ok:
+      description: Empty response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ResponseSchema"
     Error:
       description: Error response
       content:
@@ -67,6 +185,28 @@ components:
               - properties:
                   payload:
                     $ref: "#/components/schemas/AuthResponseSchema"
+    Profile:
+      description: Profile response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/UserSchema"
+    ProfilePhotoUpdated:
+      description: Profile photo updated response
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/ResponseSchema"
+              - properties:
+                  payload:
+                    $ref: "#/components/schemas/UpdateProfilePhotoResponseSchema"
   schemas:
     AuthRequestSchema:
       description: Authorization request
@@ -125,6 +265,84 @@ components:
             phone:
               type: string
               description: User's phone number
+    UpdateProfileRequestSchema:
+      description: Profile update request
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: first_name of the user
+        last_name:
+          type: string
+          description: last_name of the user
+        email:
+          type: string
+          description: email of the user
+        phone:
+          type: string
+          description: phone of the user
+        address:
+          type: string
+          description: address of the user
+        about:
+          type: string
+          description: about of the user
+        country_id:
+          type: string
+          description: country_id of the user
+        region_id:
+          type: string
+          description: region_id of the user
+    UpdateProfilePhotoResponseSchema:
+      description: Response for updated profile photo
+      type: object
+      properties:
+        url:
+          type: string
+          description: url of the uploaded photo
+    UserSchema:
+      description: User data
+      type: object
+      properties:
+        uid:
+          type: string
+          description: uid of the user
+        email:
+          type: string
+          description: email of the user
+        first_name:
+          type: string
+          description: first_name of the user
+        last_name:
+          type: string
+          description: last_name of the user
+        phone:
+          type: string
+          description: phone of the user
+        address:
+          type: string
+          description: address of the user
+        photo_url:
+          type: string
+          description: photo_url of the user
+        about:
+          type: string
+          description: about of the user
+        country_id:
+          type: string
+          description: country_id of the user
+        region_id:
+          type: string
+          description: region_id of the user
+        passport_country_id:
+          type: string
+          description: passport_country_id of the user
+        passport_serial_number:
+          type: string
+          description: passport_serial_number of the user
+        passport_photo_url:
+          type: string
+          description: passport_photo_url of the user
     ResponseSchema:
       description: General response for whole API service
       type: object
