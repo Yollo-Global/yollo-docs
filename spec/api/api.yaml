@@ -1274,11 +1274,14 @@ paths:
         in: query
         name: offset
         type: integer
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
       produces:
       - application/json
       responses: {}
-      security:
-      - Bearer: []
       summary: Get landlord history
       tags:
       - order
@@ -1286,6 +1289,12 @@ paths:
     get:
       consumes:
       - application/json
+      parameters:
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
       produces:
       - application/json
       responses:
@@ -1314,8 +1323,6 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
-      security:
-      - Bearer: []
       summary: Get landlord stat
       tags:
       - order
@@ -1450,6 +1457,12 @@ paths:
   /user/v1/profile:
     get:
       description: Get user profile
+      parameters:
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
       produces:
       - application/json
       responses:
@@ -1478,8 +1491,6 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
-      security:
-      - Bearer: []
       summary: Get user profile
       tags:
       - profile
@@ -1494,6 +1505,11 @@ paths:
         required: true
         schema:
           $ref: '#/definitions/internal_useCase_user_profile.UpdateProfileRequest'
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
       produces:
       - application/json
       responses:
@@ -1517,8 +1533,6 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
-      security:
-      - Bearer: []
       summary: Update user profile
       tags:
       - profile
@@ -1543,6 +1557,11 @@ paths:
         name: passport_photo
         required: true
         type: file
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
       produces:
       - application/json
       responses:
@@ -1571,8 +1590,6 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
-      security:
-      - Bearer: []
       summary: Update passport
       tags:
       - profile
@@ -1587,6 +1604,11 @@ paths:
         name: photo
         required: true
         type: file
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
       produces:
       - application/json
       responses:
@@ -1615,8 +1637,6 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
-      security:
-      - Bearer: []
       summary: Update user photo
       tags:
       - profile
