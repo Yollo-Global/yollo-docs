@@ -48,14 +48,9 @@ const config = {
         title: "Docs",
         items: [
           {
-            label: "User service",
+            label: "Backend api",
             position: "left",
-            to: "/docs/user/v1",
-          },
-          {
-            label: "Catalog service",
-            position: "left",
-            to: "/docs/catalog/v1",
+            to: "/docs/api",
           },
           {
             href: "https://github.com/yollo-global/yollo-backend",
@@ -78,17 +73,9 @@ const config = {
         id: "openapi",
         docsPluginId: "classic",
         config: {
-          user: {
-            specPath: "spec/user/v1.yaml",
-            outputDir: "docs/user/",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag",
-            },
-          },
-          catalog: {
-            specPath: "spec/catalog/v1.yaml",
-            outputDir: "docs/catalog/",
+          docs: {
+            specPath: "spec/api/api.yaml",
+            outputDir: "docs/api/",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",

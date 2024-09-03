@@ -1,0 +1,1400 @@
+basePath: /
+definitions:
+  github_com_Letto-Global_letto-backend_pkg_common.Status:
+    enum:
+    - 0
+    - 1
+    - 2
+    type: integer
+    x-enum-varnames:
+    - Draft
+    - Active
+    - Deleted
+  github_com_Letto-Global_letto-backend_pkg_response.Response:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      ok:
+        type: boolean
+      payload: {}
+    type: object
+  github_com_Letto-Global_letto-backend_pkg_transport.EmptyResponse:
+    type: object
+  internal_useCase_catalog_apartment.Apartment:
+    properties:
+      apartment_type:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.ApartmentTypeResponse'
+      basic_info:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.BasicInfoResponse'
+      caption:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.CaptionResponse'
+      feature_categories:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.FeatureCategoryResponse'
+        type: array
+      host: {}
+      id:
+        type: string
+      location_info:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.LocationInfoResponse'
+      photos:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.PhotoResponse'
+        type: array
+      pricing:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.PricingResponse'
+      slug:
+        type: string
+      status:
+        $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_common.Status'
+    type: object
+  internal_useCase_catalog_apartment.ApartmentTypeResponse:
+    properties:
+      icon:
+        type: string
+      id:
+        type: string
+      status:
+        $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_common.Status'
+      title:
+        type: string
+    type: object
+  internal_useCase_catalog_apartment.BasicInfo:
+    properties:
+      bathrooms:
+        type: integer
+      bedrooms:
+        type: integer
+      beds:
+        type: integer
+      guests:
+        type: integer
+    type: object
+  internal_useCase_catalog_apartment.BasicInfoResponse:
+    properties:
+      bathrooms:
+        type: integer
+      bedrooms:
+        type: integer
+      beds:
+        type: integer
+      guests:
+        type: integer
+    type: object
+  internal_useCase_catalog_apartment.Caption:
+    properties:
+      description:
+        type: string
+      language:
+        type: string
+      title:
+        type: string
+    type: object
+  internal_useCase_catalog_apartment.CaptionResponse:
+    properties:
+      description:
+        type: string
+      title:
+        type: string
+    type: object
+  internal_useCase_catalog_apartment.CountryResponse:
+    properties:
+      id:
+        type: string
+      status:
+        $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_common.Status'
+      title:
+        type: string
+    type: object
+  internal_useCase_catalog_apartment.CreateDraftRequest:
+    properties:
+      apartment_type_id:
+        type: string
+      basic_info:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.BasicInfo'
+      caption:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.Caption'
+      feature_ids:
+        items:
+          type: string
+        type: array
+      location_info:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.LocationInfo'
+      photos:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.Photo'
+        type: array
+      pricing:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.Pricing'
+    type: object
+  internal_useCase_catalog_apartment.FeatureCategoryResponse:
+    properties:
+      features:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.FeatureResponse'
+        type: array
+      id:
+        type: string
+      status:
+        $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_common.Status'
+      title:
+        type: string
+    type: object
+  internal_useCase_catalog_apartment.FeatureResponse:
+    properties:
+      icon:
+        type: string
+      id:
+        type: string
+      status:
+        $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_common.Status'
+      title:
+        type: string
+    type: object
+  internal_useCase_catalog_apartment.GetAllResponse:
+    properties:
+      apartments:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.Apartment'
+        type: array
+      count:
+        type: integer
+    type: object
+  internal_useCase_catalog_apartment.LocationInfo:
+    properties:
+      address:
+        type: string
+      city:
+        type: string
+      country_id:
+        type: string
+      description:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+    type: object
+  internal_useCase_catalog_apartment.LocationInfoResponse:
+    properties:
+      address:
+        type: string
+      city:
+        type: string
+      country:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.CountryResponse'
+      description:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+    type: object
+  internal_useCase_catalog_apartment.Photo:
+    properties:
+      caption:
+        type: string
+      urls:
+        items:
+          type: string
+        type: array
+    type: object
+  internal_useCase_catalog_apartment.PhotoResponse:
+    properties:
+      caption:
+        type: string
+      urls:
+        items:
+          type: string
+        type: array
+    type: object
+  internal_useCase_catalog_apartment.Price:
+    properties:
+      price:
+        type: integer
+      type:
+        type: string
+      weekends:
+        items:
+          type: integer
+        type: array
+    type: object
+  internal_useCase_catalog_apartment.PriceResponse:
+    properties:
+      price:
+        type: integer
+      type:
+        type: string
+      weekends:
+        items:
+          type: integer
+        type: array
+    type: object
+  internal_useCase_catalog_apartment.Pricing:
+    properties:
+      base_price:
+        type: integer
+      prices:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.Price'
+        type: array
+    type: object
+  internal_useCase_catalog_apartment.PricingResponse:
+    properties:
+      base_price:
+        type: integer
+      prices:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.PriceResponse'
+        type: array
+    type: object
+  internal_useCase_catalog_apartment.Response:
+    properties:
+      id:
+        type: string
+    type: object
+  internal_useCase_catalog_apartment.Rule:
+    properties:
+      enabled:
+        type: boolean
+      id:
+        type: string
+    type: object
+  internal_useCase_catalog_apartment.UpdateRequest:
+    properties:
+      apartment_type_id:
+        type: string
+      arrival_time:
+        type: string
+      basic_info:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.BasicInfo'
+      caption:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.Caption'
+      departure_time:
+        type: string
+      feature_ids:
+        items:
+          type: string
+        type: array
+      location_info:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.LocationInfo'
+      photos:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.Photo'
+        type: array
+      pricing:
+        $ref: '#/definitions/internal_useCase_catalog_apartment.Pricing'
+      rules:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.Rule'
+        type: array
+      status:
+        type: string
+    type: object
+  internal_useCase_catalog_apartment_type.GetAllResponse:
+    properties:
+      count:
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_apartment_type.TypeResponse'
+        type: array
+    type: object
+  internal_useCase_catalog_apartment_type.TypeResponse:
+    properties:
+      icon:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+    type: object
+  internal_useCase_catalog_country.Country:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: string
+      status:
+        $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_common.Status'
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  internal_useCase_catalog_country.GetAllResponse:
+    properties:
+      count:
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_country.Country'
+        type: array
+    type: object
+  internal_useCase_catalog_feature_category.Feature:
+    properties:
+      created_at:
+        type: string
+      icon:
+        type: string
+      id:
+        type: string
+      status:
+        $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_common.Status'
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  internal_useCase_catalog_feature_category.FeatureCategory:
+    properties:
+      created_at:
+        type: string
+      description:
+        type: string
+      features:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_feature_category.Feature'
+        type: array
+      id:
+        type: string
+      status:
+        $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_common.Status'
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  internal_useCase_catalog_feature_category.GetAllResponse:
+    properties:
+      count:
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_feature_category.FeatureCategory'
+        type: array
+    type: object
+  internal_useCase_catalog_file.Response:
+    properties:
+      url:
+        type: string
+    type: object
+  internal_useCase_catalog_region.Country:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: string
+      status:
+        $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_common.Status'
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  internal_useCase_catalog_region.GetAllResponse:
+    properties:
+      count:
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_region.Country'
+        type: array
+    type: object
+  internal_useCase_catalog_review.CreateRequest:
+    properties:
+      comment:
+        type: string
+      rating:
+        type: integer
+    type: object
+  internal_useCase_catalog_review.CreateResponse:
+    type: object
+  internal_useCase_catalog_review.GetAllResponse:
+    properties:
+      count:
+        type: integer
+      reviews:
+        items:
+          $ref: '#/definitions/internal_useCase_catalog_review.Review'
+        type: array
+    type: object
+  internal_useCase_catalog_review.Review:
+    properties:
+      apartment_id:
+        type: string
+      comment:
+        type: string
+      created_at:
+        type: string
+      rating:
+        type: integer
+      reviewer:
+        $ref: '#/definitions/internal_useCase_catalog_review.Reviewer'
+    type: object
+  internal_useCase_catalog_review.Reviewer:
+    properties:
+      first_name:
+        type: string
+      joined_at:
+        type: string
+      last_name:
+        type: string
+      photo_url:
+        type: string
+      uid:
+        type: string
+    type: object
+  internal_useCase_user_auth.Auth:
+    properties:
+      access_token:
+        type: string
+      refresh_token:
+        type: string
+    type: object
+  internal_useCase_user_auth.Otp:
+    properties:
+      expires_at:
+        type: string
+      sent:
+        type: boolean
+    type: object
+  internal_useCase_user_auth.Request:
+    properties:
+      otp:
+        type: string
+      phone:
+        type: string
+    type: object
+  internal_useCase_user_auth.Response:
+    properties:
+      auth:
+        $ref: '#/definitions/internal_useCase_user_auth.Auth'
+      otp:
+        $ref: '#/definitions/internal_useCase_user_auth.Otp'
+      user:
+        $ref: '#/definitions/internal_useCase_user_auth.User'
+    type: object
+  internal_useCase_user_auth.User:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      phone:
+        type: string
+      photo_url:
+        type: string
+      uuid:
+        type: string
+    type: object
+  internal_useCase_user_profile.UpdatePhotoResponse:
+    properties:
+      url:
+        type: string
+    type: object
+  internal_useCase_user_profile.UpdateProfileRequest:
+    properties:
+      about:
+        type: string
+      address:
+        type: string
+      country_id:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      phone:
+        type: string
+      region_id:
+        type: string
+    type: object
+  internal_useCase_user_profile.User:
+    properties:
+      about:
+        type: string
+      address:
+        type: string
+      country_id:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      joined_at:
+        type: string
+      last_name:
+        type: string
+      passport_country_id:
+        type: string
+      passport_photo_url:
+        type: string
+      passport_serial_number:
+        type: string
+      phone:
+        type: string
+      photo_url:
+        type: string
+      region_id:
+        type: string
+      uid:
+        type: string
+      verified:
+        type: boolean
+    type: object
+host: api.letto.world
+info:
+  contact: {}
+  description: API documentation for backend services
+  title: Letto Backend service API
+  version: v1
+paths:
+  /catalog/v1/apartment:
+    get:
+      consumes:
+      - application/json
+      description: Get apartments with some filters
+      parameters:
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Guests
+        in: query
+        name: guests
+        type: integer
+      - description: Price from
+        in: query
+        name: price_from
+        type: integer
+      - description: Price to
+        in: query
+        name: price_to
+        type: integer
+      - description: Bedrooms
+        in: query
+        name: bedrooms
+        type: integer
+      - description: Beds
+        in: query
+        name: beds
+        type: integer
+      - description: Bathrooms
+        in: query
+        name: bathrooms
+        type: integer
+      - description: Apartment type ID
+        in: query
+        name: apartment_type_id
+        type: string
+      - description: Feature IDs
+        in: query
+        name: feature_ids
+        type: string
+      - description: Popular
+        in: query
+        name: popular
+        type: boolean
+      - description: Check in
+        in: query
+        name: check_in
+        type: string
+      - description: Check out
+        in: query
+        name: check_out
+        type: string
+      - description: Language
+        in: header
+        name: Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_apartment.GetAllResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Get all apartments
+      tags:
+      - apartment
+  /catalog/v1/apartment-type:
+    get:
+      consumes:
+      - application/json
+      description: Get apartment types with some filters
+      parameters:
+      - description: Country ID
+        in: query
+        name: country_id
+        type: string
+      - description: Offset of the elements
+        in: query
+        name: offset
+        type: integer
+      - description: Limit of the elements
+        in: query
+        name: limit
+        type: integer
+      - description: Language of the response
+        in: header
+        name: Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_apartment_type.GetAllResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Get all apartment types
+      tags:
+      - apartment-type
+  /catalog/v1/apartment/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update apartment
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.UpdateRequest'
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_transport.EmptyResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Update apartment
+      tags:
+      - apartment
+  /catalog/v1/apartment/{slug}:
+    get:
+      consumes:
+      - application/json
+      description: Get apartment by slug
+      parameters:
+      - description: Slug
+        in: path
+        name: slug
+        required: true
+        type: string
+      - description: Language
+        in: header
+        name: Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_apartment.Apartment'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Get apartment
+      tags:
+      - apartment
+  /catalog/v1/apartment/draft:
+    post:
+      consumes:
+      - application/json
+      description: Create draft apartment
+      parameters:
+      - description: Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/internal_useCase_catalog_apartment.CreateDraftRequest'
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_apartment.Response'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Create draft apartment
+      tags:
+      - apartment
+  /catalog/v1/country:
+    get:
+      consumes:
+      - application/json
+      description: Get countries with some filters
+      parameters:
+      - description: Offset of the elements
+        in: query
+        name: offset
+        type: integer
+      - description: Limit of the elements
+        in: query
+        name: limit
+        type: integer
+      - description: Language of the response
+        in: header
+        name: Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_country.GetAllResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Get all countries
+      tags:
+      - country
+  /catalog/v1/feature-category:
+    get:
+      consumes:
+      - application/json
+      description: Get feature categories with some filters
+      parameters:
+      - description: Offset of the elements
+        in: query
+        name: offset
+        type: integer
+      - description: Limit of the elements
+        in: query
+        name: limit
+        type: integer
+      - description: Language of the response
+        in: header
+        name: Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_feature_category.GetAllResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Get all feature categories
+      tags:
+      - feature-category
+  /catalog/v1/file:
+    post:
+      consumes:
+      - application/json
+      description: Upload file
+      parameters:
+      - description: File
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_file.Response'
+              type: object
+      summary: Upload file
+      tags:
+      - file
+  /catalog/v1/region:
+    get:
+      consumes:
+      - application/json
+      description: Get regions with some filters
+      parameters:
+      - description: Country ID
+        in: query
+        name: country_id
+        type: string
+      - description: Offset of the elements
+        in: query
+        name: offset
+        type: integer
+      - description: Limit of the elements
+        in: query
+        name: limit
+        type: integer
+      - description: Language of the response
+        in: header
+        name: Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_region.GetAllResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Get all regions
+      tags:
+      - region
+  /catalog/v1/reviews/{apartment_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get reviews with some filters
+      parameters:
+      - description: Apartment ID
+        in: path
+        name: apartment_id
+        required: true
+        type: string
+      - description: Offset of the elements
+        in: query
+        name: offset
+        type: integer
+      - description: Limit of the elements
+        in: query
+        name: limit
+        type: integer
+      - description: Language of the response
+        in: header
+        name: Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_review.GetAllResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Get all reviews
+      tags:
+      - review
+    post:
+      consumes:
+      - application/json
+      description: Create review
+      parameters:
+      - description: Apartment ID
+        in: path
+        name: apartment_id
+        required: true
+        type: string
+      - description: Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/internal_useCase_catalog_review.CreateRequest'
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_catalog_review.CreateResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Create review
+      tags:
+      - review
+  /user/v1/auth:
+    post:
+      consumes:
+      - application/json
+      description: Authenticate user by phone number and otp
+      parameters:
+      - description: Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/internal_useCase_user_auth.Request'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_user_auth.Response'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Authenticate user
+      tags:
+      - auth
+  /user/v1/auth/refresh:
+    post:
+      consumes:
+      - application/json
+      description: Refresh tokens by refresh token
+      parameters:
+      - description: Refresh token
+        in: header
+        name: X-Refresh-Token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_user_auth.Response'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Refresh tokens
+      tags:
+      - auth
+  /user/v1/profile:
+    get:
+      description: Get user profile
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_user_profile.User'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      security:
+      - Bearer: []
+      summary: Get user profile
+      tags:
+      - profile
+    post:
+      consumes:
+      - application/json
+      description: Update user profile
+      parameters:
+      - description: Update profile request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/internal_useCase_user_profile.UpdateProfileRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      security:
+      - Bearer: []
+      summary: Update user profile
+      tags:
+      - profile
+  /user/v1/profile/passport:
+    post:
+      consumes:
+      - application/json
+      description: Update passport
+      parameters:
+      - description: Country ID
+        in: formData
+        name: country_id
+        required: true
+        type: string
+      - description: Serial number
+        in: formData
+        name: serial_number
+        required: true
+        type: string
+      - description: Passport photo
+        in: formData
+        name: passport_photo
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_transport.EmptyResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      security:
+      - Bearer: []
+      summary: Update passport
+      tags:
+      - profile
+  /user/v1/profile/photo:
+    post:
+      consumes:
+      - application/json
+      description: Update user photo
+      parameters:
+      - description: Photo
+        in: formData
+        name: photo
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_user_profile.UpdatePhotoResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      security:
+      - Bearer: []
+      summary: Update user photo
+      tags:
+      - profile
+schemes:
+- https
+swagger: "2.0"

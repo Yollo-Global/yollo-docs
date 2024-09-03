@@ -17,30 +17,17 @@ const sidebars = {
   openApiSidebar: [
     {
       type: "category",
-      label: "User service",
+      label: "Backend API",
       link: {
         type: "generated-index",
-        title: "User service",
+        title: "Backend API",
         description:
-          "User service api",
-        slug: "/user/v1"
+          "Backend api",
+        slug: "/api"
       },
       // @ts-ignore
-      items: require("./docs/user/sidebar.js"),
+      items: require("./docs/api/sidebar.js"),
     },
-    {
-      type: "category",
-      label: "Catalog service",
-      link: {
-        type: "generated-index",
-        title: "Catalog service",
-        description:
-            "Catalog service api",
-        slug: "/catalog/v1"
-      },
-      // @ts-ignore
-      items: require("./docs/catalog/sidebar.js"),
-    }
   ]
 
   // But you can create a sidebar manually
