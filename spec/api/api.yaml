@@ -447,6 +447,98 @@ definitions:
       uid:
         type: string
     type: object
+  internal_useCase_order_order.CreateRequest:
+    properties:
+      check_in:
+        type: string
+      check_out:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      payment_method:
+        type: string
+      phone:
+        type: string
+    type: object
+  internal_useCase_order_order.CreateResponse:
+    properties:
+      order_id:
+        type: string
+      pay_url:
+        type: string
+    type: object
+  internal_useCase_order_order.StatResponse:
+    properties:
+      available_amount:
+        type: integer
+      frozen_amount:
+        type: integer
+      withdrew_amount:
+        type: integer
+    type: object
+  internal_useCase_order_payment_octo.AcceptStatus:
+    enum:
+    - capture
+    - cancel
+    type: string
+    x-enum-varnames:
+    - Capture
+    - Cancel
+  internal_useCase_order_payment_octo.PaymentCallbackRequest:
+    properties:
+      hash_key:
+        type: string
+      masked_pan:
+        type: string
+      octo_payment_UUID:
+        type: string
+      payed_time:
+        description: Время завершения платежа в формате YYYY-MM-DD hh:mm:ss
+        type: string
+      refunded_sum:
+        type: number
+      risk_level:
+        type: integer
+      rrn:
+        type: string
+      shop_transaction_id:
+        type: string
+      signature:
+        type: string
+      status:
+        $ref: '#/definitions/internal_useCase_order_payment_octo.Status'
+      test:
+        type: boolean
+      total_sum:
+        type: number
+      transfer_sum:
+        type: number
+    type: object
+  internal_useCase_order_payment_octo.PaymentCallbackResponse:
+    properties:
+      accept_status:
+        $ref: '#/definitions/internal_useCase_order_payment_octo.AcceptStatus'
+      final_amount:
+        type: number
+    type: object
+  internal_useCase_order_payment_octo.Status:
+    enum:
+    - created
+    - canceled
+    - wait_user_action
+    - waiting_for_capture
+    - succeeded
+    type: string
+    x-enum-varnames:
+    - Created
+    - Canceled
+    - WaitUserAction
+    - WaitingForCapture
+    - Succeded
   internal_useCase_user_auth.Auth:
     properties:
       access_token:
@@ -1137,6 +1229,139 @@ paths:
       summary: Create review
       tags:
       - review
+  /order/v1/orders/{apartment_slug}:
+    post:
+      consumes:
+      - application/json
+      description: Create order
+      parameters:
+      - description: Create request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/internal_useCase_order_order.CreateRequest'
+      - description: Apartment slug
+        in: path
+        name: apartment_slug
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_order_order.CreateResponse'
+              type: object
+      summary: Create order
+      tags:
+      - order
+  /order/v1/orders/landlord/history:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      security:
+      - Bearer: []
+      summary: Get landlord history
+      tags:
+      - order
+  /order/v1/orders/landlord/statistics:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_order_order.StatResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      security:
+      - Bearer: []
+      summary: Get landlord stat
+      tags:
+      - order
+  /order/v1/payment/octo/callback:
+    post:
+      consumes:
+      - application/json
+      description: Payment callback
+      parameters:
+      - description: Payment callback request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/internal_useCase_order_payment_octo.PaymentCallbackRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+            - properties:
+                payload:
+                  $ref: '#/definitions/internal_useCase_order_payment_octo.PaymentCallbackResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_Letto-Global_letto-backend_pkg_response.Response'
+      summary: Payment callback
+      tags:
+      - octo
   /user/v1/auth:
     post:
       consumes:
