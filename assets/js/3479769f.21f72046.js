@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocumentation=self.webpackChunkdocumentation||[]).push([[536],{87644:e=>{e.exports=JSON.parse('{"title":"Backend API","description":"Backend api","slug":"/api","permalink":"/yollo-docs/docs/api","navigation":{"next":{"title":"Introduction","permalink":"/yollo-docs/docs/api/letto-backend-service-api"}}}')}}]);
